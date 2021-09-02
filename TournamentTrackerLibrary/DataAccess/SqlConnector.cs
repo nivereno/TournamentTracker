@@ -11,12 +11,6 @@ namespace TrackerLibrary.DataAccess
 {
     public class SqlConnector : IDataConnection
     {
-        // TODO - Make the CreatePrize method actually work
-        /// <summary>
-        /// Saves a new prize to the database
-        /// </summary>
-        /// <param name="model"></param>
-        /// <returns>The prize information and id</returns>
         public PrizeModel CreatePrize(PrizeModel model)
         {
             //using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("Tournaments")))
