@@ -8,47 +8,58 @@ using System.Threading.Tasks;
 using TournamentTrackerLibrary.Models;
 using TrackerLibrary.Models;
 
-namespace TrackerLibrary.DataAccess
-{
-    public class SqlConnector : IDataConnection
-    {
-        public PersonModel CreatePerson(PersonModel model)
-        {
-            //using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("Tournaments")))
-            {
-                var p = new DynamicParameters();
-                p.Add("@FirstName", model.FirstName);
-                p.Add("@LastName", model.LastName);
-                p.Add("@EmailAddress", model.EmailAddress);
-                p.Add("@CellphoneNumber", model.CellphoneNumber);
-                p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+//namespace TrackerLibrary.DataAccess
+//{
+//    public class SqlConnector : IDataConnection
+//    {
+//        private const string db = "Tournaments";
+//        public PersonModel CreatePerson(PersonModel model)
+//        {
+//            //using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
+//            {
+//                var p = new DynamicParameters();
+//                p.Add("@FirstName", model.FirstName);
+//                p.Add("@LastName", model.LastName);
+//                p.Add("@EmailAddress", model.EmailAddress);
+//                p.Add("@CellphoneNumber", model.CellphoneNumber);
+//                p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
-                //connection.Execute("dbo.spPeople_Insert", p, commandType: CommandType.StoredProcedure);
+//                //connection.Execute("dbo.spPeople_Insert", p, commandType: CommandType.StoredProcedure);
 
-                model.Id = p.Get<int>("@id");
+//                model.Id = p.Get<int>("@id");
 
-                return model;
+//                return model;
 
-            }
-        }
-        public PrizeModel CreatePrize(PrizeModel model)
-        {
-            //using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("Tournaments")))
-            {
-                var p = new DynamicParameters();
-                p.Add("@PlaceNumber", model.PlaceNumber);
-                p.Add("@PlaceName", model.PlaceName);
-                p.Add("@PrizeAmount", model.PrizeAmount);
-                p.Add("@PrizePercentage", model.PrizePercentage);
-                p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+//            }
+//        }
+//        public PrizeModel CreatePrize(PrizeModel model)
+//        {
+//            //using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
+//            {
+//                var p = new DynamicParameters();
+//                p.Add("@PlaceNumber", model.PlaceNumber);
+//                p.Add("@PlaceName", model.PlaceName);
+//                p.Add("@PrizeAmount", model.PrizeAmount);
+//                p.Add("@PrizePercentage", model.PrizePercentage);
+//                p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
-                //connection.Execute("dbo.spPrizes_Insert", p, commandType: CommandType.StoredProcedure);
+//                //connection.Execute("dbo.spPrizes_Insert", p, commandType: CommandType.StoredProcedure);
 
-                model.Id = p.Get<int>("@id");
+//                model.Id = p.Get<int>("@id");
 
-                return model;
+//                return model;
 
-            }
-        }
-    }
-}
+//            }
+//        }
+
+//        public List<PersonModel> GetPerson_All()
+//        {
+//            List<PersonModel> output = new List<PersonModel>();
+//            //using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db))) ;
+//            //{
+//            //    output = ConnectionState.Query<PersonModel>("dbo.spPeople_GetAll").ToList();
+//            //}
+//            return output;
+//        }
+//    }
+//}
