@@ -14,8 +14,12 @@ namespace TrackerLibrary.DataAccess
         public PrizeModel CreatePrize(PrizeModel model)
         {
             List<PrizeModel> prizes = PrizesFile.FullFilePath().LoadFile().ConvertToPrizeModels();
+            int currentId = 1;
+            if (prizes.Count > 0)
+            {
+                currentId = prizes.OrderByDescending(x => x.Id).First().Id + 1;
+            }
 
-            int currentId = prizes.OrderByDescending(x => x.Id).First().Id + 1;
             model.Id = currentId;
 
             prizes.Add(model);

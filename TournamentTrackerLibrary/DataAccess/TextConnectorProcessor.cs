@@ -13,7 +13,7 @@ namespace TrackerLibrary.DataAccess.TextHelpers
     {
         public static string FullFilePath(this string fileName)
         {
-            return $"{ ConfigurationManager.AppSettings["filePath"] }\\{ fileName }";
+            return @"C:\Saved Data for tracker\" + fileName;
         }
 
         public static List<string> LoadFile(this string file)
@@ -55,6 +55,7 @@ namespace TrackerLibrary.DataAccess.TextHelpers
                 lines.Add($"{ p.Id },{ p.PlaceNumber },{ p.PlaceName },{ p.PrizeAmount },{ p.PrizePercentage }");
             }
 
+            Directory.CreateDirectory(@"C:\Saved Data for tracker");
             File.WriteAllLines(fileName.FullFilePath(), lines);
         }    
     }
