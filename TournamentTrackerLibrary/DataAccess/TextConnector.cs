@@ -78,7 +78,7 @@ namespace TrackerLibrary.DataAccess
 
         public List<TeamModel> GetTeam_ALL()
         {
-            throw new NotImplementedException();
+            return TeamFile.FullFilePath().LoadFile().ConvertToTeamModels(PeopleFile);
         }
     }
 }
