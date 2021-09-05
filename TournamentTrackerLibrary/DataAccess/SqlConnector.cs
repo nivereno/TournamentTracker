@@ -80,7 +80,7 @@ using TrackerLibrary.Models;
 //            }
 //        }
 
-//        public TournamentModel CreateTournament(TournamentModel model)
+//        public void CreateTournament(TournamentModel model)
 //        {
 //            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString(db)))
 //            {
@@ -89,8 +89,6 @@ using TrackerLibrary.Models;
 //                SaveTournamentPrizes(connection, model);
 
 //                SaveTournamentEntries(connection, model);
-
-//                return model;
 //            }
 
 //            private void SaveTournament(IDbConnection connection, TournamentModel model)
